@@ -12,6 +12,7 @@
 		<nav>
 			<a href="/BAEdu"> Beranda </a>
 			<a href="data.php"> Data </a>
+			<a href="laporan.php"> Laporan </a>
 			<hr><hr> <br>
 		</nav>
 
@@ -36,12 +37,12 @@
 								<td>
 									<select name="kls" required>
 										<option value=""> --- </option>
-										<option value="X"> X Kuliner </option>
-										<option value="X"> X Fashion Desain </option>
-										<option value="X"> X DKV </option>
-										<option value="XI"> XI Kuliner </option>
-										<option value="XI"> XI Fashion Desain </option>
-										<option value="XI"> XI DKV </option>
+										<option value="X Kuliner"> X Kuliner </option>
+										<option value="X Fashion Desain"> X Fashion Desain </option>
+										<option value="X DKV"> X DKV </option>
+										<option value="XI Kuliner"> XI Kuliner </option>
+										<option value="XI Fashion Desain"> XI Fashion Desain </option>
+										<option value="XI DKV"> XI DKV </option>
 									</select>
 								</td>
 							</tr>
@@ -274,7 +275,7 @@
 										$no = 1;
 										foreach($kueri as $isi){
 											echo "<td align='center'>" .$no++. "</td>";
-											echo "<td>" .$isi["nama"]. "</td>";
+											echo "<td>" .substr($isi["nama"], 0, 6) . str_repeat("*", max(0, strlen($isi["nama"]) -6)). "</td>";
 											echo "<td align='center'>" .$isi["kls"]. "</td>";
 											echo "<td align='center'> <a href='detail.php?nama=" .$isi["nama"]. "&kls=" .$isi["kls"]. "'> Detail </a> </td> </tr>";
 										}
